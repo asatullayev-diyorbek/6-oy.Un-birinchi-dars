@@ -37,7 +37,7 @@ class AboutView(View):
         context = {
             'title': "Biz haqimizda",
         }
-        return render(request, 'about.html')
+        return render(request, 'about.html', context)
 
 
 @login_required
