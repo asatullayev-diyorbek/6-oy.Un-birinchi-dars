@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>{{ car.name }}</h1>
+            <a href="{% url 'home' %}#car" class="btn btn-secondary">Orqaga</a>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                {% if car.image %}
+                    <img src="{{ car.image.url }}" alt="{{ car.name }}" class="img-fluid">
+                {% else %}
+                    <img src="{% static 'default.png' %}" alt="Default Image" class="img-fluid" width="100%">
+                {% endif %}
+            </div>
+            <div class="col-md-6">
+                <p><strong>Brendi:</strong> {{ car.brand.name }}</p>
+                <p><strong>Soni:</strong> {{ car.count }} ta</p>
+                <p><strong>Narxi:</strong> $ {{ car.price }}</p>
+                <p><strong>Ishlab chiqarilgan sana:</strong> {{ car.date_manufactured }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
